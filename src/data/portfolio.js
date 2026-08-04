@@ -5,6 +5,7 @@
 
 export const profile = {
   name: 'Juan Diego Cabrera Ramírez',
+  handle: '@ByJuanRamirez',
   title: 'JavaScript Developer & AI-Augmented Builder',
   tagline: 'Llevo tu idea desde el diseño hasta producción. Solo, rápido y potenciado con IA.',
   avatar: null, // Ruta a public/avatar.jpg cuando esté disponible

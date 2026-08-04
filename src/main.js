@@ -103,7 +103,7 @@ function createSidebar() {
       <div class="nav-profile__avatar">${profileAvatarHTML}</div>
       <div class="nav-profile__info">
         <span class="nav-profile__name">${profile.name.split(' ').slice(0,2).join(' ')}</span>
-        <span class="nav-profile__handle">@juandiegocr</span>
+        <span class="nav-profile__handle">${profile.handle}</span>
       </div>
       <span class="nav-profile__dots">${ICONS.more}</span>
     </div>
@@ -155,7 +155,7 @@ function createProfileHeader() {
         <span class="profile-name">${profile.name}</span>
         <span class="profile-verified" title="Developer verificado">${ICONS.verified}</span>
       </div>
-      <div class="profile-handle">@juandiegocr · <span style="color:var(--blue)">JavaScript Developer</span></div>
+      <div class="profile-handle">${profile.handle} · <span style="color:var(--blue)">JavaScript Developer</span></div>
 
       <!-- Bio -->
       <p class="profile-bio">${about.bio[0]}</p>
@@ -242,7 +242,7 @@ function createPostsTab() {
         <div class="tweet__body">
           <div class="tweet__header">
             <span class="tweet__name">${profile.name.split(' ').slice(0,2).join(' ')}</span>
-            <span class="tweet__handle">@juandiegocr</span>
+            <span class="tweet__handle">${profile.handle}</span>
             <span class="tweet__dot">·</span>
             <span class="tweet__time">${item.date} · ${item.duration}</span>
           </div>
@@ -311,7 +311,7 @@ function createContactTab() {
       <div class="tweet__body">
         <div class="tweet__header">
           <span class="tweet__name">${profile.name.split(' ').slice(0,2).join(' ')}</span>
-          <span class="tweet__handle">@juandiegocr</span>
+          <span class="tweet__handle">${profile.handle}</span>
         </div>
         <div class="tweet__text" style="display:flex;align-items:center;gap:10px;color:var(--text);">
           <span style="color:var(--text-muted);width:22px;height:22px;display:flex;align-items:center;">${l.icon}</span>
@@ -331,7 +331,7 @@ function createContactTab() {
       <div class="tweet__body">
         <div class="tweet__header">
           <span class="tweet__name">${profile.name.split(' ').slice(0,2).join(' ')}</span>
-          <span class="tweet__handle">@juandiegocr</span>
+          <span class="tweet__handle">${profile.handle}</span>
         </div>
         <div class="tweet__title">Lo que me hace diferente</div>
         <div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:8px;">
