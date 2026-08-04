@@ -48,8 +48,6 @@ const CATEGORY_COLORS = {
   VCS:        '#1d9bf0',
 };
 
-const LEVEL_LABELS = ['', 'Básico', 'Familiar', 'Competente', 'Avanzado', 'Experto'];
-
 // ── Avatar helper ──────────────────────────────────────────
 function avatarHTML(size = 40, extraClass = '') {
   if (profile.avatar) {
@@ -277,15 +275,10 @@ function createSkillsTab() {
   const tilesHTML = skills.map(skill => {
     const icon = SKILL_ICONS[skill.id] || SKILL_ICONS.js;
     const color = CATEGORY_COLORS[skill.category] || '#1d9bf0';
-    const dots = Array.from({length: 5}, (_, i) =>
-      `<span class="skill-dot${i < skill.level ? ' skill-dot--on' : ''}"></span>`
-    ).join('');
-
     return `
       <div class="skill-tile" style="--cell-color:${color};" title="${skill.description}">
         <div class="skill-tile__icon">${icon}</div>
         <span class="skill-tile__name">${skill.name}</span>
-        <div class="skill-tile__level">${dots}</div>
       </div>
     `;
   }).join('');
@@ -358,7 +351,7 @@ function createContactTab() {
           <span class="tweet__handle">@juandiegocr</span>
         </div>
         <div class="tweet__text" style="display:flex;align-items:center;gap:10px;color:var(--text);">
-          <span style="color:var(--blue);width:22px;height:22px;display:flex;align-items:center;">${l.icon}</span>
+          <span style="color:var(--text-muted);width:22px;height:22px;display:flex;align-items:center;">${l.icon}</span>
           <strong style="color:var(--text-muted);min-width:70px;">${l.label}</strong>
           <a href="${l.href}" target="${l.href.startsWith('mailto') ? '_self' : '_blank'}" rel="noopener" style="color:var(--blue);">${l.value}</a>
         </div>
@@ -409,7 +402,6 @@ function createAside() {
             <div class="aside-skill-row__cat">${s.category}</div>
           </div>
         </div>
-        <div class="aside-skill-row__level">${LEVEL_LABELS[s.level]}</div>
       </div>
     `;
   }).join('');

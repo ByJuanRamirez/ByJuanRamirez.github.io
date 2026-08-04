@@ -503,12 +503,6 @@ p { color: var(--text-muted); line-height: 1.6; }
 }
 
 /* Dots de nivel skill */
-.skill-dots { display: flex; gap: 4px; }
-.skill-dot {
-  width: 8px; height: 8px; border-radius: 50%;
-  background: var(--border); transition: background var(--transition);
-}
-.skill-dot--on { background: var(--cell-color, var(--blue)); }
 
 /* Acciones del tweet */
 .tweet__actions {
@@ -613,7 +607,7 @@ p { color: var(--text-muted); line-height: 1.6; }
   width: 40px; height: 40px; border-radius: var(--radius-sm);
   background: var(--bg-secondary); border: 1px solid var(--border);
   display: flex; align-items: center; justify-content: center;
-  flex-shrink: 0; color: var(--blue);
+  flex-shrink: 0; color: var(--text-muted);
   transition: background var(--transition), border-color var(--transition);
 }
 .aside-item:hover .aside-item__icon { background: var(--blue-dim); border-color: var(--blue); }
@@ -637,7 +631,6 @@ p { color: var(--text-muted); line-height: 1.6; }
 .aside-skill-row__icon svg { width: 16px; height: 16px; }
 .aside-skill-row__name { font-size: 0.9375rem; font-weight: 700; color: var(--text); }
 .aside-skill-row__cat { font-size: 0.8125rem; color: var(--text-muted); }
-.aside-skill-row__level { font-size: 0.8125rem; font-weight: 600; color: var(--blue); }
 
 .aside-footer { margin-top: 16px; display: flex; flex-wrap: wrap; gap: 6px 12px; }
 .aside-footer a { font-size: 0.8125rem; color: var(--text-muted); transition: color var(--transition); }

@@ -48,16 +48,8 @@ const CATEGORY_COLORS = {
   VCS:        { color: 'var(--blue)',   dim: 'var(--blue-dim)',   glow: 'var(--blue-glow)' },
 };
 
-const LEVEL_LABELS = ['', 'Básico', 'Familiar', 'Competente', 'Avanzado', 'Experto'];
-
 function skillById(id) {
   return skills.find(s => s.id === id);
-}
-
-function levelDots(level) {
-  return Array.from({ length: 5 }, (_, i) =>
-    `<span class="bento__dot ${i < level ? 'bento__dot--on' : ''}"></span>`
-  ).join('');
 }
 
 function renderCell(cell) {
@@ -96,10 +88,6 @@ function renderCell(cell) {
         <div class="bento__cell-body">
           <span class="bento__skill-name">${mainSkill.name}${extraSkills ? ' & ' + cell.ids.slice(1).map(id => skillById(id)?.name).join(' & ') : ''}</span>
           ${isFeatured ? `<p class="bento__skill-desc">${mainSkill.description}</p>` : ''}
-        </div>
-        <div class="bento__cell-footer">
-          <div class="bento__dots">${levelDots(mainSkill.level)}</div>
-          <span class="bento__level-label">${LEVEL_LABELS[mainSkill.level]}</span>
         </div>
       </div>
     </div>
