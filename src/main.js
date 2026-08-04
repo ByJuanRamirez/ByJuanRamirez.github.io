@@ -1,5 +1,5 @@
 import './style.css';
-import { profile, about, skills, experience, blogPosts } from './data/portfolio.js';
+import { profile, about, skills, experience } from './data/portfolio.js';
 
 // ── Icons SVG (reutilizables) ──────────────────────────────
 const ICONS = {
@@ -68,7 +68,6 @@ function createSidebar() {
     { id: 'inicio',    icon: ICONS.home,     label: 'Inicio',     tab: '' },
     { id: 'proyectos', icon: ICONS.code,     label: 'Proyectos',  tab: 'posts' },
     { id: 'skills',    icon: ICONS.chart,    label: 'Skills',     tab: 'skills' },
-    { id: 'blog',      icon: ICONS.bookmark, label: 'Blog',       tab: 'blog' },
     { id: 'contacto',  icon: ICONS.mail,     label: 'Contacto',   tab: 'contact' },
   ];
 
@@ -203,7 +202,6 @@ function createProfileHeader() {
     <div class="profile-tabs" role="tablist">
       <button class="profile-tab active" data-tab="posts" role="tab">Proyectos</button>
       <button class="profile-tab" data-tab="skills" role="tab">Skills</button>
-      <button class="profile-tab" data-tab="blog" role="tab">Blog</button>
       <button class="profile-tab" data-tab="contact" role="tab">Contacto</button>
     </div>
   `;
@@ -220,6 +218,7 @@ function createPostsTab() {
   const STATUS_MAP = { 'Producción': 'prod', 'En desarrollo': 'dev', 'Mantenimiento': 'maint' };
 
   const postsHTML = experience.map((item, i) => {
+    const isLast = i === experience.length - 1;
     const techHashtags = item.tech.map(t => `<span class="tweet-hashtag">#${t.replace(/[^a-zA-Z0-9]/g,'')}</span>`).join(' ');
     const statusCls = STATUS_MAP[item.status] || 'prod';
     const avatarContent = profile.avatar
@@ -235,9 +234,10 @@ function createPostsTab() {
       : '';
 
     return `
-      <article class="tweet reveal reveal-delay-${(i % 3) + 1}">
+      <article class="tweet ${isLast ? 'tweet--thread-end' : 'tweet--thread-item'} reveal reveal-delay-${(i % 3) + 1}">
         <div class="tweet__left">
           <div class="tweet__avatar">${avatarContent}</div>
+          ${!isLast ? '<div class="tweet__thread-line"></div>' : ''}
         </div>
         <div class="tweet__body">
           <div class="tweet__header">
@@ -284,43 +284,6 @@ function createSkillsTab() {
   }).join('');
 
   div.innerHTML = `<div class="skills-grid">${tilesHTML}</div>`;
-  return div;
-}
-
-// ── Tab: Blog ──────────────────────────────────────────────
-function createBlogTab() {
-  const div = document.createElement('div');
-  div.className = 'tab-content';
-  div.setAttribute('data-tab-content', 'blog');
-
-  const avatarContent = profile.avatar
-    ? `<img src="${profile.avatar}" alt="${profile.name}">`
-    : profile.initials;
-
-  const postsHTML = blogPosts.map((post, i) => {
-    const tagsHTML = post.tags.map(t => `<span class="tweet-hashtag">#${t}</span>`).join(' ');
-    return `
-      <article class="tweet reveal reveal-delay-${(i % 3) + 1}">
-        <div class="tweet__left">
-          <div class="tweet__avatar">${avatarContent}</div>
-        </div>
-        <div class="tweet__body">
-          <div class="tweet__header">
-            <span class="tweet__name">${profile.name.split(' ').slice(0,2).join(' ')}</span>
-            <span class="tweet__handle">@juandiegocr</span>
-            <span class="tweet__dot">·</span>
-            <span class="tweet__time">${post.date}</span>
-          </div>
-          ${post.comingSoon ? '<span class="blog-coming-soon">Próximamente</span>' : ''}
-          <div class="tweet__title">${post.title}</div>
-          <div class="tweet__text">${post.excerpt}</div>
-          <div class="tweet__hashtags">${tagsHTML}</div>
-        </div>
-      </article>
-    `;
-  }).join('');
-
-  div.innerHTML = postsHTML;
   return div;
 }
 
@@ -478,12 +441,10 @@ main.appendChild(profileHeader);
 
 const postsTab    = createPostsTab();
 const skillsTab   = createSkillsTab();
-const blogTab     = createBlogTab();
 const contactTab  = createContactTab();
 
 main.appendChild(postsTab);
 main.appendChild(skillsTab);
-main.appendChild(blogTab);
 main.appendChild(contactTab);
 
 // Aside
