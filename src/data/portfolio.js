@@ -8,7 +8,7 @@ export const profile = {
   handle: '@ByJuanRamirez',
   title: 'JavaScript Developer & AI-Augmented Builder',
   tagline: 'Llevo tu idea desde el diseño hasta producción. Solo, rápido y potenciado con IA.',
-  avatar: null, // Ruta a public/avatar.jpg cuando esté disponible
+  avatar: 'public/perfil.jpeg', // Ruta a public/avatar.jpg cuando esté disponible
   initials: 'JDC',
   email: 'juandiego@example.com',       // ← actualizar
   github: 'https://github.com/tu-usuario', // ← actualizar
