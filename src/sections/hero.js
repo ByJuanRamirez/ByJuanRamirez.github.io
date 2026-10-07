@@ -1,53 +1,65 @@
-import { profile } from '../data/portfolio.js';
+import { profile, hero, experience, skills } from '../data/portfolio.js';
+import { ICONS } from '../icons.js';
+import { splitWords } from '../text.js';
 
-export function createHero() {
-  const section = document.createElement('section');
-  section.className = 'hero';
-  section.id = 'hero';
+const BADGE_TEXT = 'Disponible · Fullstack · Colombia · ';
 
-  const avatarHtml = profile.avatar
-    ? `<img src="${profile.avatar}" alt="${profile.name}" class="hero__avatar-img">`
-    : `<span class="hero__avatar-initials">${profile.initials}</span>`;
+export function heroHTML() {
+  const shipped = experience.filter(p => p.status !== 'En desarrollo').length;
 
-  section.innerHTML = `
-    <!-- Orbs de blur animados -->
-    <div class="hero__orbs" aria-hidden="true">
-      <div class="hero__orb hero__orb--1"></div>
-      <div class="hero__orb hero__orb--2"></div>
-      <div class="hero__orb hero__orb--3"></div>
-    </div>
+  const facts = [
+    { value: profile.yearsExperience, label: 'años escribiendo software' },
+    { value: String(shipped).padStart(2, '0'), label: 'proyectos en producción' },
+    { value: String(skills.length), label: 'herramientas en mi stack' },
+    { value: profile.timezone, label: `${profile.location}, horario compatible con EE. UU.` },
+  ];
 
-    <div class="hero__content">
-      <div class="hero__avatar-wrap">
-        ${avatarHtml}
-        <span class="hero__avatar-dot" aria-hidden="true"></span>
+  return `
+    <section class="hero wrap" aria-labelledby="hero-title">
+      <div class="hero__meta mono">
+        <span>${profile.role}</span>
+        ${profile.available ? `<span class="status"><i aria-hidden="true"></i>Disponible para proyectos</span>` : ''}
       </div>
-      <p class="hero__greeting">// Hola, soy</p>
-      <h1 class="hero__name">
-        Juan Diego<br><span>Cabrera Ramírez</span>
-      </h1>
-      <p class="hero__title">${profile.title}</p>
-      <p class="hero__tagline">${profile.tagline}</p>
-      <div class="hero__cta">
-        <a href="#experience" class="btn btn--primary">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
-          Ver mis proyectos
-        </a>
-        <a href="#contact" class="btn btn--outline">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-          Hablemos
-        </a>
-      </div>
-    </div>
 
-    <div class="hero__scroll" aria-hidden="true">
-      <span>scroll</span>
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><polyline points="19 12 12 19 5 12"/></svg>
-    </div>
+      <div class="hero__grid">
+        <div class="hero__copy">
+          <h1 class="hero__title split" id="hero-title" aria-label="${hero.headline.replace(/\*/g, '')}">${splitWords(hero.headline)}</h1>
+          <p class="hero__intro">${hero.intro}</p>
+          <div class="hero__cta">
+            <a href="#contacto" class="btn">Cuéntame tu proyecto ${ICONS.arrow}</a>
+            <a href="#proyectos" class="link-under">Ver trabajo reciente</a>
+          </div>
+        </div>
+
+        <figure class="hero__photo" data-parallax="0.06">
+          <div class="portrait" id="portrait">
+            <div class="hero__glow" aria-hidden="true"></div>
+            <div class="portrait__frame">
+              <img class="portrait__img" src="${profile.avatar}" alt="Retrato de ${profile.name}" width="1254" height="1254" fetchpriority="high">
+              <span class="portrait__grain" aria-hidden="true"></span>
+            </div>
+            <svg class="portrait__badge" viewBox="0 0 120 120" aria-hidden="true">
+              <defs><path id="badgeCircle" d="M60,60 m-46,0 a46,46 0 1,1 92,0 a46,46 0 1,1 -92,0"/></defs>
+              <circle cx="60" cy="60" r="59" class="portrait__badge-bg"/>
+              <text><textPath href="#badgeCircle" textLength="286">${BADGE_TEXT.repeat(1)}</textPath></text>
+              <path d="M52 68 68 52M56 52h12v12" class="portrait__badge-arrow"/>
+            </svg>
+          </div>
+          <figcaption class="mono">
+            <span>${profile.shortName}</span>
+            <span id="localTime">${profile.location}</span>
+          </figcaption>
+        </figure>
+      </div>
+
+      <dl class="facts reveal">
+        ${facts.map(f => `
+          <div class="facts__item reveal-child">
+            <dt class="facts__value" data-count>${f.value}</dt>
+            <dd class="facts__label">${f.label}</dd>
+          </div>
+        `).join('')}
+      </dl>
+    </section>
   `;
-
-  return section;
 }
-
-// No hay canvas — función vacía para compatibilidad con main.js
-export function initHeroCanvas() {}
