@@ -2,7 +2,7 @@ import { profile, hero, experience, skills } from '../data/portfolio.js';
 import { ICONS } from '../icons.js';
 import { splitWords } from '../text.js';
 
-const BADGE_TEXT = 'Disponible · Fullstack · Colombia · ';
+const BADGE_TEXT = 'Disponible · Freelance IA · Colombia · ';
 
 export function heroHTML() {
   const shipped = experience.filter(p => p.status !== 'En desarrollo').length;
@@ -35,7 +35,7 @@ export function heroHTML() {
           <div class="portrait" id="portrait">
             <div class="hero__glow" aria-hidden="true"></div>
             <div class="portrait__frame">
-              <img class="portrait__img" src="${profile.avatar}" alt="Retrato de ${profile.name}" width="1254" height="1254" fetchpriority="high">
+              <picture><source type="image/webp" srcset="/perfil-640.webp 640w, /perfil-1080.webp 1080w" sizes="(max-width: 760px) 80vw, 420px"><img class="portrait__img" src="${profile.avatar}" alt="${profile.name}, ${profile.role.charAt(0).toLowerCase() + profile.role.slice(1)} en ${profile.location}" width="1254" height="1254" fetchpriority="high"></picture>
               <span class="portrait__grain" aria-hidden="true"></span>
             </div>
             <svg class="portrait__badge" viewBox="0 0 120 120" aria-hidden="true">

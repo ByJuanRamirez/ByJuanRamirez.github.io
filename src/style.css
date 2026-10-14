@@ -613,6 +613,26 @@ svg { width: 1em; height: 1em; flex-shrink: 0; }
   padding-block: 0.3rem;
 }
 
+/* ---------- Preguntas frecuentes ---------- */
+.faq { border-top: 1px solid var(--rule-strong); }
+.faq__item { border-bottom: 1px solid var(--rule); }
+.faq__q {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1.5rem;
+  padding: 1.4rem 0;
+  cursor: pointer;
+  list-style: none;
+}
+.faq__q::-webkit-details-marker { display: none; }
+.faq__q h3 { font-size: 1.35rem; font-weight: 600; letter-spacing: -0.015em; line-height: 1.25; }
+.faq__q:hover h3 { color: var(--accent); }
+.faq__q:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
+.faq__icon { color: var(--accent); font-size: 1.2rem; transition: transform 0.3s var(--ease-out); flex: none; }
+.faq__item[open] .faq__icon { transform: rotate(45deg); }
+.faq__a { color: var(--ink-2); max-width: 46rem; padding-bottom: 1.6rem; }
+
 /* ---------- Proceso ---------- */
 /* Fig. 04: tokens del kit anatomy llevados al papel y la tinta del sitio */
 .pf {

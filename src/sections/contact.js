@@ -8,7 +8,7 @@ export function contactHTML() {
   return `
     <section class="contact" id="contacto" aria-labelledby="contact-title">
       <div class="wrap">
-        <p class="mono contact__index"><span>05</span> Contacto</p>
+        <p class="mono contact__index"><span>06</span> Contacto</p>
         <h2 class="contact__title split reveal" id="contact-title" aria-label="¿Tienes algo en mente? Hablemos.">${splitWords('¿Tienes algo en mente?\n*Hablemos.*')}</h2>
 
         <a href="${profile.linkedin}" target="_blank" rel="noopener" class="contact__link reveal">

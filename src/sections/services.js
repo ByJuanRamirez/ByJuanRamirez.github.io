@@ -4,7 +4,7 @@ import { sectionHead } from './section-head.js';
 export function servicesHTML() {
   return `
     <section class="section wrap" id="servicios">
-      ${sectionHead('01', 'Servicios', 'Del diseño al despliegue.', 'Trabajo en las cuatro capas que necesita un producto para salir a producción y me adapto al stack y al equipo que ya tienes.')}
+      ${sectionHead('01', 'Servicios', 'IA aplicada, del diseño al despliegue.', 'Trabajo en las capas que necesita un producto con IA para salir a producción: el modelo, la interfaz, la API y la infraestructura. Me adapto al stack y al equipo que ya tienes.')}
       <div class="services">
         ${services.map((s, i) => `
           <article class="service reveal">

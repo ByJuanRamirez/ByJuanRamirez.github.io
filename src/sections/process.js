@@ -1,4 +1,3 @@
-import '../iso/iso.css';
 import { process } from '../data/portfolio.js';
 import { sectionHead } from './section-head.js';
 import { buildProceso } from '../figures/proceso.js';

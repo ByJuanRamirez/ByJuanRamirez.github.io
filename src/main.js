@@ -1,24 +1,13 @@
 import './style.css';
-import { navHTML } from './sections/nav.js';
-import { heroHTML } from './sections/hero.js';
-import { servicesHTML } from './sections/services.js';
-import { workHTML } from './sections/work.js';
-import { stackHTML } from './sections/stack.js';
-import { processHTML, mountProcess } from './sections/process.js';
-import { contactHTML } from './sections/contact.js';
+import './iso/iso.css';
+import { renderApp } from './app.js';
+import { mountProcess } from './sections/process.js';
 
 // ── Montar ─────────────────────────────────────────────────
-document.getElementById('app').innerHTML = `
-  ${navHTML()}
-  <main>
-    ${heroHTML()}
-    ${servicesHTML()}
-    ${workHTML()}
-    ${stackHTML()}
-    ${processHTML()}
-  </main>
-  ${contactHTML()}
-`;
+// En producción el HTML ya viene prerenderizado (ver vite.config.js);
+// en desarrollo se pinta aquí.
+const app = document.getElementById('app');
+if (!app.firstElementChild) app.innerHTML = renderApp();
 mountProcess();
 
 // ── Tema ───────────────────────────────────────────────────

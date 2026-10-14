@@ -3,33 +3,17 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Juan Diego Cabrera Ramírez — Desarrollador JavaScript fullstack</title>
-    <meta name="description" content="Juan Diego Cabrera Ramírez, desarrollador JavaScript fullstack en Colombia. Diseño, API, base de datos, Docker y deploy: llevo productos web de la idea a producción." />
-    <meta name="author" content="Juan Diego Cabrera Ramírez" />
+    <!-- title, description, Open Graph, JSON-LD y analítica: se generan desde src/data/portfolio.js (vite.config.js) -->
+    <!--seo-head-->
     <meta name="theme-color" content="#f2efe8" media="(prefers-color-scheme: light)" />
     <meta name="theme-color" content="#121110" media="(prefers-color-scheme: dark)" />
     <link rel="icon" type="image/png" href="/favicon.png" />
-    <link rel="canonical" href="https://byjuanramirez.github.io/" />
-
-    <!-- Open Graph -->
-    <meta property="og:title" content="Juan Diego Cabrera Ramírez — Desarrollador JavaScript fullstack" />
-    <meta property="og:description" content="Construyo productos web completos, de la primera línea al deploy." />
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://byjuanramirez.github.io/" />
-    <meta property="og:image" content="https://byjuanramirez.github.io/perfil.jpeg" />
-    <meta property="og:locale" content="es_CO" />
-
-    <!-- Twitter Card -->
-    <meta name="twitter:card" content="summary" />
-    <meta name="twitter:site" content="@ByJuanRamirez" />
-    <meta name="twitter:title" content="Juan Diego Cabrera Ramírez — Desarrollador JavaScript fullstack" />
-    <meta name="twitter:description" content="Construyo productos web completos, de la primera línea al deploy." />
-    <meta name="twitter:image" content="https://byjuanramirez.github.io/perfil.jpeg" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Schibsted+Grotesk:ital,wght@0,400..900;1,400..900&display=swap" />
-    <link rel="preload" as="image" href="/perfil.jpeg" />
+    <link rel="preload" as="image" type="image/webp" imagesrcset="/perfil-640.webp 640w, /perfil-1080.webp 1080w" imagesizes="(max-width: 760px) 80vw, 420px" fetchpriority="high" />
 
     <!-- Tema antes del primer render para evitar parpadeo -->
     <script>
