@@ -4,7 +4,7 @@ import { heroHTML } from './sections/hero.js';
 import { servicesHTML } from './sections/services.js';
 import { workHTML } from './sections/work.js';
 import { stackHTML } from './sections/stack.js';
-import { processHTML } from './sections/process.js';
+import { processHTML, mountProcess } from './sections/process.js';
 import { contactHTML } from './sections/contact.js';
 
 // ── Montar ─────────────────────────────────────────────────
@@ -19,6 +19,7 @@ document.getElementById('app').innerHTML = `
   </main>
   ${contactHTML()}
 `;
+mountProcess();
 
 // ── Tema ───────────────────────────────────────────────────
 // El tema inicial se aplica en index.html antes del primer render
@@ -103,7 +104,7 @@ function countUp(el) {
 document.querySelectorAll('.reveal-child').forEach((el) => {
   el.style.setProperty('--d', `${[...el.parentElement.children].indexOf(el) * 90}ms`);
 });
-document.querySelectorAll('.services, .process').forEach((group) => {
+document.querySelectorAll('.services').forEach((group) => {
   [...group.children].forEach((el, i) => el.style.setProperty('--d', `${(i % 4) * 90}ms`));
 });
 
