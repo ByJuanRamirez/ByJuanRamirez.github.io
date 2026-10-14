@@ -3,11 +3,32 @@
 // Edita este archivo para actualizar el contenido del sitio
 // ============================================================
 
+// Datos del sitio para SEO, analítica y verificación de buscadores.
+// Deja un campo vacío ('') para desactivarlo.
+export const site = {
+  url: 'https://byjuanramirez.github.io/',
+  lang: 'es',
+  locale: 'es_CO',
+  title: 'Desarrollador freelance de IA en Colombia · Juan Diego Cabrera',
+  description:
+    'Desarrollador freelance de IA en Colombia. Construyo agentes de IA, chatbots e integraciones con Claude y Google AI listos para producción: API, base de datos y deploy incluidos.',
+  shareTitle: 'Juan Diego Cabrera — Desarrollador freelance de IA',
+  shareDescription: 'Agentes de IA, chatbots e integraciones con LLMs que llegan a producción. Freelance desde Colombia, horario compatible con EE. UU.',
+  ogImage: 'og-image.jpg',
+  github: 'https://github.com/ByJuanRamirez',
+  // Google Analytics 4: ID de medición, p. ej. 'G-XXXXXXXXXX'
+  ga4Id: '',
+  // Google Search Console: valor del meta tag de verificación (solo el content)
+  googleVerification: '',
+  // Bing Webmaster Tools: valor del meta tag msvalidate.01 (solo el content)
+  bingVerification: '',
+};
+
 export const profile = {
   name: 'Juan Diego Cabrera Ramírez',
   shortName: 'Juan Diego',
   handle: '@ByJuanRamirez',
-  role: 'Desarrollador JavaScript fullstack',
+  role: 'Desarrollador freelance de IA',
   avatar: '/perfil.jpeg',
   initials: 'JDC',
   // Único canal de contacto
@@ -20,12 +41,17 @@ export const profile = {
 
 export const hero = {
   // Las palabras entre *asteriscos* se resaltan con el color de acento
-  headline: 'Construyo productos web completos, de la *primera línea* al *deploy*.',
+  headline: 'Construyo *agentes de IA* y productos web, de la primera línea al *deploy*.',
   intro:
-    'Soy Juan Diego, desarrollador JavaScript en Colombia. Diseño la interfaz, escribo la API, modelo la base de datos y dejo todo corriendo en producción.',
+    'Soy Juan Diego, desarrollador freelance de IA en Colombia. Integro modelos como Claude y Gemini en productos reales: agentes que trabajan solos, chatbots y automatizaciones, con su interfaz, su API, su base de datos y todo corriendo en producción.',
 };
 
 export const services = [
+  {
+    title: 'Agentes e IA aplicada',
+    text: 'Agentes de IA que trabajan solos desde Telegram u otros canales, chatbots con contexto y automatizaciones que integran modelos de Claude y Google AI Studio en tu producto o en tus procesos.',
+    tags: ['Agentes de IA', 'Chatbots', 'Claude API', 'Google AI Studio'],
+  },
   {
     title: 'Interfaces',
     text: 'Frontends rápidos y accesibles con JavaScript moderno, React o Astro. CSS escrito a mano, sin plantillas genéricas.',
@@ -40,11 +66,6 @@ export const services = [
     title: 'Infraestructura',
     text: 'Contenedores con Docker, despliegues en Railway y servidores Linux. Lo que construyo queda en línea, no en una carpeta.',
     tags: ['Docker', 'Linux', 'Railway', 'CI/CD'],
-  },
-  {
-    title: 'IA aplicada',
-    text: 'Construyo agentes que trabajan solos, desde Telegram u otros canales, e integro modelos de Claude y Google AI Studio en productos reales. También uso IA a diario para revisar arquitectura y código.',
-    tags: ['Agentes', 'OpenClaw', 'Google AI Studio', 'Claude API'],
   },
 ];
 
@@ -112,6 +133,26 @@ export const experience = [
     tech: ['Node.js', 'Express', 'PostgreSQL', 'Docker'],
     links: { github: '#', live: '#' },
     status: 'Producción',
+  },
+];
+
+// Preguntas frecuentes: se muestran en la página y como datos estructurados (FAQPage).
+export const faq = [
+  {
+    q: '¿Qué tipo de proyectos de IA desarrollas?',
+    a: 'Agentes de IA que ejecutan tareas por su cuenta, chatbots con contexto para Telegram y otros canales, y automatizaciones que procesan texto con modelos como Claude o Gemini. También integro IA en aplicaciones web que ya existen.',
+  },
+  {
+    q: '¿Solo haces la parte de IA o también el resto del producto?',
+    a: 'El producto completo: interfaz, API, base de datos, contenedores y despliegue. Un agente o un chatbot necesita un backend fiable, autenticación y un servidor donde correr, y me encargo de todo eso.',
+  },
+  {
+    q: '¿Trabajas de forma remota con clientes fuera de Colombia?',
+    a: 'Sí. Trabajo en remoto desde Colombia (UTC−5), un horario compatible con Estados Unidos y Latinoamérica, y publico versiones que puedes abrir y probar desde las primeras semanas.',
+  },
+  {
+    q: '¿Cómo empezamos un proyecto?',
+    a: 'Escríbeme por LinkedIn contándome qué quieres construir, para cuándo y con qué presupuesto. Con eso preparo una propuesta concreta con alcance, entregables y tiempos.',
   },
 ];
 

@@ -6,6 +6,7 @@ const LINKS = [
   { href: '#proyectos', label: 'Proyectos' },
   { href: '#stack',     label: 'Stack' },
   { href: '#proceso',   label: 'Proceso' },
+  { href: '#preguntas', label: 'Preguntas' },
 ];
 
 export function navHTML() {
