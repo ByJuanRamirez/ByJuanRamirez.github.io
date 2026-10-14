@@ -12,7 +12,7 @@ import { contactHTML } from './sections/contact.js';
 export function renderApp() {
   return `
   ${navHTML()}
-  <main>
+  <main id="contenido">
     ${heroHTML()}
     ${servicesHTML()}
     ${workHTML()}

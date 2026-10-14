@@ -11,7 +11,7 @@ export const site = {
   locale: 'es_CO',
   title: 'Desarrollador freelance de IA en Colombia · Juan Diego Cabrera',
   description:
-    'Desarrollador freelance de IA en Colombia. Construyo agentes de IA, chatbots e integraciones con Claude y Google AI listos para producción: API, base de datos y deploy incluidos.',
+    'Desarrollador freelance de IA en Colombia: agentes de IA, chatbots e integraciones con Claude y Gemini listos para producción, con API, base de datos y deploy.',
   shareTitle: 'Juan Diego Cabrera — Desarrollador freelance de IA',
   shareDescription: 'Agentes de IA, chatbots e integraciones con LLMs que llegan a producción. Freelance desde Colombia, horario compatible con EE. UU.',
   ogImage: 'og-image.jpg',
@@ -49,21 +49,25 @@ export const hero = {
 export const services = [
   {
     title: 'Agentes e IA aplicada',
+    page: 'agentes-de-ia',
     text: 'Agentes de IA que trabajan solos desde Telegram u otros canales, chatbots con contexto y automatizaciones que integran modelos de Claude y Google AI Studio en tu producto o en tus procesos.',
     tags: ['Agentes de IA', 'Chatbots', 'Claude API', 'Google AI Studio'],
   },
   {
     title: 'Interfaces',
+    page: 'desarrollo-web-fullstack',
     text: 'Frontends rápidos y accesibles con JavaScript moderno, React o Astro. CSS escrito a mano, sin plantillas genéricas.',
     tags: ['JavaScript', 'React', 'Astro', 'CSS'],
   },
   {
     title: 'APIs y datos',
+    page: 'apis-y-backend',
     text: 'Servicios REST en Node y Express con autenticación, validación y esquemas SQL pensados para crecer sin reescribirse.',
     tags: ['Node.js', 'Express', 'PostgreSQL', 'JWT'],
   },
   {
     title: 'Infraestructura',
+    page: 'desarrollo-web-fullstack',
     text: 'Contenedores con Docker, despliegues en Railway y servidores Linux. Lo que construyo queda en línea, no en una carpeta.',
     tags: ['Docker', 'Linux', 'Railway', 'CI/CD'],
   },
@@ -99,6 +103,7 @@ export const skills = [
 export const experience = [
   // Del más reciente al más antiguo
   {
+    slug: 'api-rest-jwt',
     title: 'API REST con JWT y rate limiting',
     date: '2026',
     duration: '6 semanas',
@@ -108,6 +113,7 @@ export const experience = [
     status: 'Producción',
   },
   {
+    slug: 'bot-claude',
     title: 'Bot de automatización con Claude',
     date: '2026',
     duration: '1 mes',
@@ -117,6 +123,7 @@ export const experience = [
     status: 'Mantenimiento',
   },
   {
+    slug: 'agente-telegram',
     title: 'Agente autogestionado en Telegram',
     date: 'Sep 2026',
     duration: '',
@@ -126,6 +133,7 @@ export const experience = [
     status: 'Producción',
   },
   {
+    slug: 'sistema-gestion-interna',
     title: 'Sistema de gestión interna',
     date: 'Oct 2025',
     duration: '3 meses',
