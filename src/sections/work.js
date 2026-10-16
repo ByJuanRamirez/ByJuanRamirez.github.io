@@ -16,7 +16,7 @@ export function workHTML() {
       <li class="project reveal">
         <span class="project__year mono">${p.date}</span>
         <div class="project__main">
-          <h3 class="project__title">${p.title}</h3>
+          <h3 class="project__title">${p.slug ? `<a href="/proyectos/${p.slug}/">${p.title}</a>` : p.title}</h3>
           <p class="project__desc">${p.description}</p>
           ${links ? `<div class="project__links">${links}</div>` : ''}
         </div>
@@ -35,6 +35,7 @@ export function workHTML() {
     <section class="section wrap" id="proyectos">
       ${sectionHead('02', 'Proyectos', 'Trabajo reciente.', 'Una selección de proyectos que he construido y mantengo.')}
       <ol class="projects">${rows}</ol>
+      <p class="section-more"><a class="link-under" href="/proyectos/bitacora/">Caso completo: Bitácora, de los requerimientos al despliegue</a></p>
     </section>
   `;
 }

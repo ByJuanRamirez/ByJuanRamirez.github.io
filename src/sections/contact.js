@@ -1,6 +1,7 @@
 import { profile } from '../data/portfolio.js';
 import { ICONS } from '../icons.js';
 import { splitWords } from '../text.js';
+import { serviceNav } from '../data/service-nav.js';
 
 export function contactHTML() {
   const handle = profile.linkedin.replace(/^https?:\/\/(www\.)?/, '').replace(/\/$/, '');
@@ -23,6 +24,28 @@ export function contactHTML() {
       </div>
 
       <footer class="wrap">
+        <nav class="footer-map" aria-label="Mapa del sitio">
+          <div>
+            <p class="footer-map__title mono">Servicios</p>
+            <ul>${serviceNav.map((s) => `<li><a href="/servicios/${s.slug}/">${s.nav}</a></li>`).join('')}</ul>
+          </div>
+          <div>
+            <p class="footer-map__title mono">Sitio</p>
+            <ul>
+              <li><a href="/proyectos/">Proyectos</a></li>
+              <li><a href="/contratar-desarrollador-freelance-ia/">Contratar un freelance de IA</a></li>
+              <li><a href="/#preguntas">Preguntas frecuentes</a></li>
+              <li><a href="/buscar/">Buscar</a></li>
+            </ul>
+          </div>
+          <div>
+            <p class="footer-map__title mono">En otros sitios</p>
+            <ul>
+              <li><a href="${profile.linkedin}" target="_blank" rel="noopener me">LinkedIn</a></li>
+              <li><a href="https://github.com/ByJuanRamirez" target="_blank" rel="noopener me">GitHub</a></li>
+            </ul>
+          </div>
+        </nav>
         <div class="footer mono">
           <span>© ${new Date().getFullYear()} ${profile.name}</span>
           <a href="#top">Volver arriba ↑</a>

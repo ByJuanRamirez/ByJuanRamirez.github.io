@@ -2,13 +2,15 @@ import './style.css';
 import './iso/iso.css';
 import { renderApp } from './app.js';
 import { mountProcess } from './sections/process.js';
+import { mountSearch } from './search.js';
 
 // ── Montar ─────────────────────────────────────────────────
 // En producción el HTML ya viene prerenderizado (ver vite.config.js);
-// en desarrollo se pinta aquí.
+// en desarrollo se pinta aquí. Las páginas internas siempre llegan prerenderizadas.
 const app = document.getElementById('app');
 if (!app.firstElementChild) app.innerHTML = renderApp();
 mountProcess();
+mountSearch();
 
 // ── Tema ───────────────────────────────────────────────────
 // El tema inicial se aplica en index.html antes del primer render
@@ -49,7 +51,7 @@ setTimeout(() => document.body.classList.add('is-settled'), 2600);
 
 // ── Retrato: profundidad leve siguiendo al cursor ──────────
 const portrait = document.getElementById('portrait');
-if (!reduceMotion && matchMedia('(hover: hover)').matches) {
+if (portrait && !reduceMotion && matchMedia('(hover: hover)').matches) {
   portrait.addEventListener('pointermove', (e) => {
     const r = portrait.getBoundingClientRect();
     portrait.style.setProperty('--tx', `${((e.clientX - r.left) / r.width - 0.5) * -14}px`);
@@ -67,8 +69,7 @@ const fmt = new Intl.DateTimeFormat('es-CO', {
   hour: '2-digit', minute: '2-digit', hour12: false, timeZone: 'America/Bogota',
 });
 const tick = () => { timeEl.textContent = `${fmt.format(new Date())} en Colombia`; };
-tick();
-setInterval(tick, 30_000);
+if (timeEl) { tick(); setInterval(tick, 30_000); }
 
 // ── Contadores ─────────────────────────────────────────────
 function countUp(el) {
